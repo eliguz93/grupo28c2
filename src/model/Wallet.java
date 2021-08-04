@@ -11,10 +11,12 @@ public class Wallet {
      */
     private int saldo;
     private boolean tieneLimite;
+    private int meta;
 
     public Wallet(boolean limite) {
         super(); //Clase como objeto
         saldo = 0;
+        meta = 0;
         tieneLimite = limite;
     }
 
@@ -27,6 +29,7 @@ public class Wallet {
             return "No puede superar el limite";
         }
         saldo += valor;
+        if(verificarMeta()){System.out.println("Has superado la meta!");}
         return "Operaciôn exitosa, nuevo saldo " + saldo;
     }
 
@@ -58,4 +61,31 @@ public class Wallet {
         saldo -= valor;
         return "Retiro, saldo actual " + saldo;
     }
+
+    public String definirMeta(int valor){
+        if(valor == 0){
+            meta = valor;
+            return "Nueva meta agregada!";
+        }
+        if(valor > LIMITE_BILLETERA && tieneLimite){
+            return "No se puede establecer una meta mas alta que el limite";
+        }
+        if(valor<0){
+            return "Valor ingresado no valido";
+        }
+        if(valor<=saldo){
+            return "Ya has superado este valor";
+        }
+        meta = valor;
+        return "Nueva meta agregada!";
+    }
+
+    public boolean verificarMeta(int valor){
+        if(saldo >= meta && meta > 0){
+            return true;
+        }
+        return false;
+    }
+
+
 }
