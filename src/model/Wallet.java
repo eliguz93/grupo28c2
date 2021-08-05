@@ -50,17 +50,7 @@ public class Wallet {
         saldo -= valor;
         return "Retiro exitoso, saldo actual " + saldo;
     }
-
-    public String getMoney2(int valor){
-        if(valor > saldo || tieneLimite){
-            int saldoTemp = saldo;
-            int valorAdiconal = -10000;
-            saldo = 0;
-            return "Solo se retirô " + saldoTemp + " Saldo actual " + valorAdiconal;
-        }
-        saldo -= valor;
-        return "Retiro, saldo actual " + saldo;
-    }
+    
 
     public String definirMeta(int valor){
         if(valor == 0){
@@ -80,7 +70,7 @@ public class Wallet {
         return "Nueva meta agregada!";
     }
 
-    public boolean verificarMeta(int valor){
+    public boolean verificarMeta(){
         if(saldo >= meta && meta > 0){
             return true;
         }

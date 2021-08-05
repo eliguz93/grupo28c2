@@ -3,7 +3,7 @@ package view;
 import model.Wallet;
 
 public class Vista {
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         Wallet wallet1 = new Wallet(true);
         Wallet wallet2 = new Wallet(false); //Objeto diferente
 
@@ -14,10 +14,7 @@ public class Vista {
         // System.out.println(wallet2.getSaldo());
         System.out.println(saldo2);
         
-        String saldo3 = wallet2.getMoney2(300000);
-        // System.out.println(wallet1.getSaldo());
-        System.out.println(saldo3);
-    
+
 
     }
     
