@@ -11,6 +11,11 @@ public class Owner extends Usuario{ // Va a heredar todo
         setNombre(nNombre);
     }
 
+    @Override //Sobreescritura metodo del padre - polimorfismo 
+    public String getNombre() { //Clase usururio de owner 
+        // TODO Auto-generated method stub
+        return super.getNombre();
+    }
 
     public Wallet getWallet() {
         return wallet;

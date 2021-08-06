@@ -20,6 +20,13 @@ public class Wallet {
         tieneLimite = limite;
     }
 
+    public Wallet(boolean limite, int saldo) {  //Sobreescritura 
+        super(); //Clase como objeto
+        this.saldo = saldo;
+        meta = 0;
+        tieneLimite = limite;
+    }
+
     public int getSaldo(){
         return saldo;
     }
@@ -76,6 +83,20 @@ public class Wallet {
         }
         return false;
     }
+
+    public String breakLimites(){
+        if(!tieneLimite){
+            return "Error. Su cuenta es sin limites";
+        }
+        if (saldo < 10000){
+            return "Error. Romper el limite tiene un costo de 10000, usted tiene " + saldo;
+        }
+        saldo -= 10000;
+        tieneLimite = false;
+        return "Operacion exitosa. Su cuenta ahora es sin limite. nuevo saldo: " + saldo;
+        
+    }
+
 
 
 }
